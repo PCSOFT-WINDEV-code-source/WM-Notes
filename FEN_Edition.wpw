@@ -1,0 +1,617 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : FEN_Edition
+ major_version : 28
+ minor_version : 0
+ type : 2
+ description : ""
+ subtype : 0
+window :
+ name : FEN_Edition
+ identifier : 0x2ca9f265056e84e1
+ internal_properties : CAAAAAgAAAAC9WPt9d0jImaBjpSHOfmrLlYTGu1KQdag/Sk4aChEQVNiTKN+jj/uBZlREzojVOQicJOaQ1pMqqHrv8Zec/zQomKRQjl+X4DZHrDel1gi+ZKgrfN3zC4yz8IdXx6mIWM/JQfq+mZeYifMwU6EphNPz5mLBSEzF1SAQ7IhGziSk2kN/2L6AssGskNLNF3PQr7wVKaFvviZ3hVZO4iUChK3izj48UkHI53Iza829FJrQxfvzkYw9MVB/7aa9eMn2iz30E/21J4m0k/QV0k0nkzUd70FtTea58yuR/pCPgzpeE6FgcHItMI1vihK1yp3nLsOZPPdgzMafpS16O0xx+pUduun6R/M26wuUI7KUI9PnGHeGx86awi2+/uAsV1cNOEy6fDz+h9wslQ42V6P0qZiX40jaZkTrTeMvrBYV6MEOMGTOjH183jl0hrgXh/yD6m6+HDg4xyosttdaTcr0a9hxE4suLBQ71+Q+YUJeSWPv75keoZqkgKCo1/A5Las+aGCFRzYm+GGVv0Anp7WCm1TnM3Yylri/TI5K+lUFEh/K4Uy8eT33BHmcEi87GBT/ZCqb/QUHi6BsWqZ8vzIWCe/6yjeuS/qAdnXfwEXLvvoBeHvIqYqayMid7MD9P/rSk4EIbb9X5qy17KHZkK5ZcYuC/H2Qk+tzlyPpwBymg4/Iuabg5575nRb2zSiEadPB28a8CknpbW7ddbuJGqOCC3oCy23MVCGdwZes3vhTMcy+07V6QOMNR7NvJtTo+6TAiGOrE6xZ4uMlrXf7iLYpEzgbV3RsH/w7G+4YA==
+ properties :
+  width : 320
+  height : 407
+  heightMin : 471
+ controls :
+  -
+    name : IMG_Note
+    identifier : 0x2ca9f265056f84e1
+    internal_properties : CAAAAAgAAABz6ueafXlkLK7QbMlJcBT/zcwCErcWdY7MpdjTTgi2aUOurKhlYiVBoZZrLszIRsPDXiG7WgJxcVhLUPaP/FpL1ByL3ib6lu3+rSEACc7v5+OsEZ8rjv1E7pz5GQ0V3+F1E25FtcAgmjNToU3yNEjGQ+76P+bFvfl6CZbJporXSoj811t1ELpMRFlPN38tbFzXNMZZIzeJQuiCh7kNSvOKR/tjm9sxcbK+XmLIes0FQh709swSgMVSlIHk0Ie6yfAfCld3FRYgCfLBluRB3tlwaQ+jCRkompCwCc6qJs5LF95efFlTkILxer8IBhnAWIskGAsq1KmNgzFAByC05GRKIwsXs1kqDSQDaoKrJjAwIazQJ2jrkG/x6LtZJ197PD1UGt6lXJWP4+QpsGy8zmVhXAGK2nCj2kuBahJNTIsUqOODeWQoxfhyatvjMUDRKreoSonreWh5E7YD668a4DnWF5WdCxsFQlg5Sbi9fMqboJWiDGAdKYhwUe2uQAZGW7SiCIg+Pe0i+SmdCWXSKi1vibSHO+ePWa9U+SWBeYwZ3LF8hOqKpFT12tBXUZdH5OlfmIyL5/m8ILcZ1yxvYAlLjlUhDg0OUgjTJOYaYkxE/sW1T9//oz4YUe4uksOC3TnyM88VUbt6MvqXqvJLe5CAMI/AcFL18cOPpskQbOlxlRYg8yQS7WGw6mf9LbYA+QEs470HEmszqKagRi1tFLOdJ3LFPf1W7EPuZerHHko5PEDRnKjBfUSPP7FOUd7y/1NHadXHXGZQsruX
+    properties :
+     width : 320
+     height : 339
+    type : 8
+    code_elements :
+     type_code : 8
+     p_codes :
+      -
+        code : |1-
+         
+        type : 14
+      -
+        code : |1+
+         
+         nCouleur est un entier
+         nx, ny sont des entiers
+         dnx, dny sont des entiers
+         
+         // Si le dessin est actif
+         SI gbCrayonEnfoncé ALORS
+         	// Récupère les coordonnées du stylet
+         	nx = SourisPosX()
+         	ny = SourisPosY()
+         	
+         	SI PAS gbEnModeCrayon ALORS
+         		nCouleur = iBlanc
+         	SINON
+         		nCouleur = gnCouleurEnCours
+         	FIN
+         	
+         	// Si l'ancienne position horizontale n'est pas 0
+         	SI gnX <> 0 ALORS
+         		// le point de départ X est l'ancienne position horizontale
+         		dnx = gnX
+         	SINON
+         		// sinon, le point de départ X est la coordonnée X du stylet
+         		dnx = nx
+         	FIN
+         	
+         	// Si l'ancienne position verticale n'est pas 0
+         	SI gnY <> 0 ALORS
+         		// le point de départ Y est l'ancienne position verticale
+         		dny = gnY
+         	SINON
+         		// sinon, le point de départ Y est la coordonnée Y du stylet
+         		dny = ny
+         	FIN
+         	
+         	// Trace une ligne avec la couleur et la taille définie
+         	dLigne(dnx, dny, nx, ny, nCouleur, CoordonnéeEditeurVersEcran(gnTailleCrayon))	
+         	
+         	// l'ancienne position X devient la position X courante du stylet
+         	gnX = nx
+         	// l'ancienne position Y devient la position Y courante du stylet
+         	gnY = ny
+         FIN
+        type : 66048
+      -
+        code : |1+
+         
+         nCouleur est un entier
+         SI PAS gbEnModeCrayon ALORS
+         	nCouleur = iBlanc
+         SINON
+         	nCouleur = gnCouleurEnCours
+         FIN
+         
+         // Active le dessin
+         gbCrayonEnfoncé = Vrai
+         // Dessine un point de la taille et de la couleur définies à l'endroit où le stylet a été appuyé
+         dLigne(SourisPosX(), SourisPosY(), SourisPosX(), SourisPosY(), nCouleur, gnTailleCrayon)
+         
+         
+         // l'ancienne position X devient la position X courante du stylet
+         gnX = SourisPosX()
+         // l'ancienne position Y devient la position Y courante du stylet
+         gnY = SourisPosY()
+         
+         // Le document a été modifié
+         gbEnregistré = Faux
+         // Active le bouton de sauvegarde
+         IMG_ENREGISTRER..Etat = Actif
+        type : 66049
+      -
+        code : |1+
+         
+         // Désactive le dessin
+         gbCrayonEnfoncé = Faux
+         // Réinitialise la sauvegarde de la position du stylet
+         gnX = 0
+         gnY = 0
+        type : 66050
+  -
+    name : IMG_Image1
+    identifier : 0x2ca9f265057084e1
+    internal_properties : CAAAAAgAAAAJYLeAI3VnTp8cIuNGhV4YLxlByFcx7s4NldA9LZuFo4Iz0IK7SOFxYWXCUyFOC3G+eDqunjdkSXvOIvghngDIf42CYe10wU8p9EwWb1LMUUlZmYgzeBfGv736HsB2MVQEG3cfyWnIDHawYMaR4f0+r07bJRP/2HRVzsr/8MLxp304Hj5TQk1lXy7yQ9jQW3bhs5NAz0fl7AFxyReU7KFUikh3iY5QZl7X1oMprzhNnDKJ3LdpBEcJLYgZ0wcYUBeXCq5blAsE4VECPx7IZRAN/3KxU2OXHWoatdoAy1D1dmMrzqz4hlrqwzjIeh1qQQ4v8gLWAIE/utYgXSPBwl6V3vyJw2+NjNAOPZk3oa1g74bb4Hlio5sOp0Ket6q1Ajbyrpq2TInOrmBRUyn/mZVC5UYkTmY+Gok3xvJHUBjS4g2BRhENmHkHOzzI8y9nrx2VL66q1S4lDjJOQQRUL/3YftMu4jE5agPJt/OR7jJruXYYcFkLt5OiRJSV6QIzOinfWl33wt5t4WgISQv0EvaIlyEnLXwLL42udRxXXROzSa2UoTs3IJfeRvqrnPvcbMtQXRG512WNbTCt/XMEyIrw9YCYSScbyHhFFHRNgMWw/J3MqEKbXuHCJrFpj2GvdeG88I81z+YDlnYTTaQ0uWIWImksFYdGE93t0JfzZU2VTFkPH/f9Vf25cb0Rq92iId42zUBZGUp5vf/HIkn4F/+5BuswKj3G3ieIvyMykanbjuv0uzKeqgJEBnIkKin3+7bF1PvC/uDe5K0vOzlbJ8W1g6zrqJcJ/Sp/p8TMgecXMR8LcWTIYU0y622RziaQmBaVGuXTJDE/u9jlQ/t6HQ==
+    properties :
+     y : 339
+     width : 320
+     height : 1
+    type : 8
+    code_elements :
+     type_code : 8
+     p_codes : []
+  -
+    name : IMG_Enregistrer
+    identifier : 0x2ca9f3a305e35fe3
+    internal_properties : CAAAAAgAAADd4sfzZtTzkO9yo07lYnQVnX6NVGeeGrV/rx20Y4qwmgHeWlgmvwdz/fSn55r6vQglmqljzphXvPkHOVREhzuvpMpiP4eGX489ETZLhM4/9due3kwR6kSV5n0AEAS+1E4gse6aWkcP9rZmeFOO31mRx4kwftFBvK1ACjTEuNvZFa/ER+W3die4UCKy0b1KX3ROngj49tN0IYG7VqpTHcB5llcwARFHdL0DpRhpVjm1mP99Jx03gE88cgxefq4le8cmXdPu2EYPbrqpZVeOtNUOGvp6YrYnHkc4/53EBpZT4RW/KxM/0Lo+QvzdFbIKLFCuZD1D8nqWXH9ThmYQ6fLYPh6p42WtbmhM5huSbh7Vbf/mz627lq4h0gGGfOQNaDoss42CGiZl+znLBZOvPDOVo6uKj50+N4o7MWGAXVl0kEgLv1sGE+BbTjkbssfXakr/4XhL+nNAyq3eUjjI2aZuFSkXKinTP9qDjG07uKWa73AvJBG0ge+Z9L7Qo93UlWeqlBg3clx4o6GS604diYmpNbNXCvSZhWBYdy8qHoyuyPi4YSfmFlpNvF+trpsin73ptrcCOJfXwrGxYOI/wM4GjKgTIfcNqzR4r0IyyTqdmDolg5sg6Vcw3GZ+U1O+jXm/RkcR3I5TGGl60HXV9MbAAB0x8fMxg83vm6kvRgO+QdLkcJ82YxgSIfu5aMoZnrrK6hErPg8TvPDCKRTdKJvGCmZOWgWJUToKJahKPwnye2brxqzNTGkX9mCRGi3DJkuPz3SmKeBoeioip7wpb1TXG786gBkzqOLC/QuVrUNSnfFkbxWt0v8tY54gPwGD82iogBEI0/TFaKPUXA==
+    properties :
+     x : 14
+     y : 353
+     width : 40
+     height : 40
+    type : 8
+    code_elements :
+     type_code : 8
+     p_codes :
+      -
+        code : |1+
+         
+         // On enregistre
+         Enregistrer()
+         
+        type : 18
+  -
+    name : BTN_OUTILDESSIN
+    identifier : 0x2ca9f4d0061cf5ad
+    internal_properties : CAAAAAgAAABbOSgJxpoGzvfshsVOBQL70arEWhwW/4H73roRGGcoIv5wtcNBM6ryfIxfvice7yMN/dyP3NuxACUMCLW42t1wP3te64b4iAmhaDyEhsw6hQJSnQATWV2pLefIPwelU+gOFkzg2VpaOtLzqVbv73WrzTelAl1EkRbEqDB+hOojUnCXrd4BEjPuafDvfU+2Oew4IsFsIOJFE9GcDiycc88AJluk6mqHWG8om4b4wryFEwhg0/6o6/7e7t+KvZq4T/DH0qDGd/h65tWYwqbX/Wr9ggSIzdHxXq4xU0hUJcDcY/iy6wGHEyO7r++7WYxInvLdmWUY6IZhifrO9e8QS6/BUiHZRWq4sn0AwMDBYndI+V6d2w8tMoa7QGUK5nbVqjniGh9SAr3M6EEf6p3ZMzrAqrVS7/d2UcxMnPq+b5iXUvIJqqatRjWbsPgNtvaiu05BmwqQeF5D6NQNT//7s2oXUtrjmSysgKktganTMeGkZr/+++yRUn48HMIAElXVPrq5hpoAeUwSR+F7w4Q75XprJeVF/1S9SqmsBYUqia8kd0FWnH1kBmmO5Cu8brAH/mnIGgMcIgxpOQSeA7hdrgfEBjaCyRS3AGLIpXjphKekeq2ZaR7O7gp1i3EcL+OA8sWHj+2v4cQnbywgxwj0aYGwApSDr0V1UWFKj04z9z4mm8lrBpmyWvZYhk9Tcf6RP7RzZoAYJVTioHl0i7IhA78K/gt+QnZjcrO4+mpLAGUWRu90uA==
+    properties :
+     x : 79
+     y : 353
+     width : 40
+     height : 40
+    type : 4
+    code_elements :
+     type_code : 4
+     p_codes :
+      -
+        code : |1-
+         
+         MoiMême..ImageFond = IMG_Crayon
+        type : 14
+      -
+        code : |1+
+         
+         SI gbEnModeCrayon ALORS
+         	// Active l'outil "Gomme"
+         	BTN_OUTILDESSIN..ImageFond = IMG_Gomme
+         	// Couleur blanche
+         	COULEUR_EN_COURS..CouleurFond = iBlanc
+         	// Grise le sélecteur de couleur
+         	COULEUR_EN_COURS..Etat = Grisé
+         	gnTailleCrayon = 50
+         	COMBO_Taille = 8
+         	gbEnModeCrayon = Faux
+         SINON
+         	// Active l'outil "Dessin"
+         	BTN_OUTILDESSIN..ImageFond = IMG_Crayon
+         	// Couleur en cours
+         	COULEUR_EN_COURS..CouleurFond = gnCouleurEnCours
+         	// Active le sélecteur de couleur
+         	COULEUR_EN_COURS..Etat = Actif
+         	gnTailleCrayon = 2
+         	COMBO_Taille = 2
+         	gbEnModeCrayon = Vrai
+         FIN
+        type : 18
+      -
+        type : 161
+        enabled : false
+  -
+    name : IMG_Gomme
+    identifier : 0x2ca9f56c0645594f
+    internal_properties : CAAAAAgAAAD+wfqWhbXQjz4haLk3hXVcXT+4d14GMg7E9n5Srh7D3xyRSpDCnXwlFJYoeNksyXEg5FXua+xSEt7bLyi4itMSYublFPPhiaiIXaXDtBAVrtXDbkz5ikiJ3mGElPSWsO4IfMiotJlpmByAKrX5WcvlWbnUMJdnHAOeNZH0DJd7iztdU+bDShzgjMbokCA+OejdMddXcO2Og4dViIRVd7rDMJ26B+vpTm9xb4JDkCuAlxaHkQ2fgE+Awjo2mmTVD01Cc9HmpEIFSi4jaYOUKH0ZRNTcoOAZPI3/6gloBq5XcR1rK0sHyBJSevDJgTq6Y1BsU7fhDID7nC9ZHSzXamCDUF6seunPiDr2tc61z136vgT42ezSuvApdDMIibZ3pkRtS2he8SYaF9L0o7+nwy/GvZPOmVT8y5Rit/eoPeGsAHwnzvJ17kS3QCVj74QXrp51fpCx1ebW1B45cpz0gTbNBB7gp654b5WOU40slGbm9II+3Y7PmK4hpat73yc/23Od8b++4lxo21HzXgFDb2tvD521QN7z276y7YGkkA40Ml4n3YduGmbRKOc5ZVKZ3s6g21ZJ716Qh3LOr71Cw8Xvn+FecKzKTtffSqA3J9xzUpRfZRlmg80mZrAoiYloWyvpyMHXWgh5L0NthKWrills+DMZjwoQvOv5CtbYzYYH4AgXxchfyJMNPJp6ASNG4AiQKN8liBUdvh6IWx4nynGISKwIHE+bf3C0nGOSxxXwMztSRmtqurWWKHy5KSh5NH1PB1urDa5jfgyMuNaNj+crwKogvOQ605urFTr9IG5oFX6jhvbBe4ywdnde31HbHo1jw+gF6JNmi4b3fw==
+    properties :
+     x : 389
+     y : 6
+     width : 40
+     height : 40
+    type : 8
+    code_elements :
+     type_code : 8
+     p_codes : []
+  -
+    name : COMBO_Taille
+    identifier : 0x2ca9f6100695d909
+    internal_properties : CAAAAAgAAADUjP5SZnJ1v0kZCubNlyIvwO8zvAxZ9q0CHMLBQRcM5rfiMN4Ajqya+SdQJo3Mj+Wa44roGmw04U5zNpE4iw3vNL9qbAsG4W85O5GVFv9LbUvJ1pbK09Z4B6rqSdHOI+ytUs69Cu8K3yRa2MIBZyiILOfKfgHs4iG+JwWmN7m86u274Sec8Zd1Sk0ZmWZdGSZYRdEynfa+4GYd7YNY7xZ3YWGcifD/Y1078OLDuMtxBJulAjeQVqDqANvIcDNwX71kEFXF0e8zMENwt4OEwboa1oYVGpvv4tag2QxGAZR7p66LwgY733HQ9bDME0Kfdc6UoSw4sqYVK06maQQhUa5sYBNHdoBmpZUbUc8b0pgicuzTAZZLtX0B1s81oDig9H5W2g50a9y91GGKHl0FYu+hwryTxo4+vHuHHgvz5BkBzW0LgQEo6rrMnFQzlzZRRzM+i98CMg323EgrB5xjPq4Z8zf1S4vOfw8vLJ1zuityAQSwYe6x2QTpr61o2ME5/J9NiJGkM6Ia4QEmrMhqmKbJx4C1ELf+aoe6jWcXFisYvXaa9p1A2QH0AE7ES8q2sojfLlvzwJtNrUqXzArgz68GqrNBIiXAmOxR2Tq25VCdexHVoob7ucmOLZ8NPneYvNhO5bYmvac+sFHE5zv05jbBsch/SM3RfdRmpwqVpMBvaYSLMZEvoj7paMu+UEUDkOtK11dsLJFtVXqIIQHhMwcTAzZE6aO96Irf5sJMJ50AdAO9aw057yXk6FIGMIcldlskvzrA9kVIoJXoskHjYFr6GTbid1dLXxcuFC0Prj6amxis4t6OHYTe/mtX52KOp/Q/Rb7uCXwd2A2I+UV/2Lh21eiU1+nbwLk5jKrI4wGFCskKjKobKiQcPJvF4aL9a4ENoMptXlzLU5fsKmLXXxWsCafL6XqMCjrlqSz2EBLIk1PiWxwvkxXdokOjm4+JHaGBwaWDRJ1Bk0/U+wWjb5PQdEhUykys4hVo9zPva7Kc3jOeAOoFomDelXA3j+i2Cu+L5sbK6z6Re2JTIKlDMLaUN//Uf44dFMFNkhgk8sOwX5LVf0nwmCAbePkBtm3QGCbFM3ON8RUXUfcNgHqhJxnxjwC4q2lDWsw8xnZXJoJXV/Nd46vttaCk09i2R/OoEtehd9+Am0ECatHLJtLnwdqcgMRXtus7BKuQcR0ciSRWJr1gAHOPln6K+KPuEpCnfZ2sWbFaMsYWPpVai+TjalOQiOxTYAUqvUJUflURjplJnXmJZC6QpLAdNSrClPltx1coLsEYAMVIaqN5iEHUnbKs33tLRBsPelc1c3QF+VCnNs843IjeKivz2XPOTI2K+xj9/f+MoI/YcwzLfnrMu3s2UKP89fjv11bwc3e/dPE+ZTHtamEf/DNY4KsegMRbbZF0F+d5rDLF+a5mjA+fTLliEHmu68jb6kGpXFWxrpBXfN9NEhYT+CwTAD6/i8qirljEn4H9eTdETof3G5WedSLoYfhMVGYQzhkFG1vBX1YssBc8/fdtWpbAPfTUjrfZteZQg1h92SsyxQZs/tixx884o4EdHBOABNIVuFH78D5HGxAJjI9OQZwMLXirPiTZ3pp0IsN1NYqQSak0XTu/
+    properties :
+     x : 146
+     y : 352
+     width : 92
+     height : 42
+    dropdown :
+     internal_properties : CAAAAAgAAADEzvBvIwrVF687Z7b1Ju3B1e4LvPYGjgjmULX3w2DkFL7GEri3qbxGsQ21u2cF3pHn+JeIfveEOojGatA1CgVyI2j9Cs5LXEpqdeWrgp1sh/q4iKxusZFnYjSEPlrH4wLNbHYXktGk+xCNZ5Mj8kYpcJDJVaVazEk/oT8lpLQif+Eiaoovuw3x3L5qmOPo05LVi5jgC2wn/LscXAEQGCPCT+5oJFYSAmkcX9yjSjgTzve2XrFNkoH5bfu8D2VvEB4QmdYUT1b3zqRM3iDKHV90TUGF/NGsppeBgg+VK7M+z54Sde8yXBsAkJxvEsBaqQbRrjnM24Jwsbl9gIOz8NnZu6lfiQvArySEm+7QeKT+e9N6HonHCikqMfxi5mufTN2lGkJEHys1Mb7RcPJgXbVgZio6e6ae3V8MHPc1TacyZL0GJ1DBkw+6XPVsfuPUEgMnbM1t2PowzMuP8hOhyZcd00NZkAYSmqJfDWqxW0Ofd9CeReZQN1DhqogXePUIijP7jc9w6+aDHjVIyczFU25br0lya9SUCaHyYBC0XYKeUmrI6P7SRZXjwBSp/96v0wwR9kKzOgPUh14lgJ1sbWpxHTNC2EmBADQiN1ql+PxaDUsHbDrOO0aPLAmXv3+7ayhxHazJzIDX
+     type : 7
+    type : 14
+    code_elements :
+     type_code : 23
+     p_codes :
+      -
+        internal_properties : CAAAAAgAAACNZ1jTO1l4ApVWcxxQO04fVUfW4H4rT1f1lA/yvKEJSVeikCR1rh3dNvUTGqCO8yTFCDhYZt7PA4euLU4nuVUtZNjRPJgRAUNpSz/1BQM/U1LIERBRlEtaGYnq5e4aqhm4QLRCbcIU+P7QcSo=
+        code : |1+
+         
+         // Vide la liste
+         ListeSupprimeTout(COMBO_Taille)
+         
+         // Remplit la liste
+         ListeAjoute(COMBO_Taille, 1)
+         ListeAjoute(COMBO_Taille, 2)
+         ListeAjoute(COMBO_Taille, 3)
+         ListeAjoute(COMBO_Taille, 5)
+         ListeAjoute(COMBO_Taille, 10)
+         ListeAjoute(COMBO_Taille, 20)
+         ListeAjoute(COMBO_Taille, 30)
+         ListeAjoute(COMBO_Taille, 50)
+         ListeAjoute(COMBO_Taille, 100)
+         
+         // Sélectionne le 2eme item
+         COMBO_Taille = 2
+         ExécuteTraitement(COMBO_Taille, trtSélection)
+        type : 14
+      -
+        type : 35
+        enabled : false
+      -
+        code : |1-
+         
+         gnTailleCrayon = COMBO_Taille[COMBO_Taille]..ValeurAffichée
+        type : 33
+      -
+        type : 17
+        enabled : false
+  -
+    name : COULEUR_EN_COURS
+    identifier : 0x2ca9f78407208761
+    internal_properties : CAAAAAgAAABSmbFou6uArxTu2F8VfsF+zbw+K3bICXhIf116gRV6dLQNB2wvZRCMVbG2aJVl1b4naqbuA2Y+T+uZYaTH0lPwuaFZGT4Z36/iH1LN+DQgypMp5vqE8ReuU9uWrBMIJ4dgMMYMSvu17gebkUy5/6kuA0ZCIJsWq3EtBpf9nyd04rARHQEtvVrJ/O4Z2JOhwES3nNEhzqfmV8XVjQCIzsZCRdjMOlFaK/eWfC4JCqO5ne6OLCJdhLog7kXRF3REGjmxynJXlSKTwC0J9eGXdEJrKdRbNtAEWRRna46/I+1Z1WIknRAPusl9bQFrC7mI1fYfUWKvbK/arCZkB6etQZ/YhkgQEp7aqSddYhc5Obhnu2K2PjodLieswdohGm5cMSOJa+5WiUcLxonY+PmRVcqexuzsq0QHuzF4FAuONm5ltEYmwOtYK1LtsWLIwVy3lCMrZtv392jrKT/jh9SKs9kQoO2EjDM8A1qQtJeJhsWC74s0adtsFGI+00zzKvBB20dCKtx/dVsgBBc8CEOpFl1uSmAjv217/aLozyMx+FKFUUodx3ODn5KWM6j7qpaJ9s2R5cJQhX8XCGnmVrWZ6z+PwNcDX5C/l9irtLlYpeIUoxC0ERoI6dO82B1p8ZtXDlfvbelLlX5KvxrIAcuPpX2EW1385kPn1JlioUo01/4uwcezh2NdoxR2ftIPDGmtXRNIN9S3/cUqKvrJ8rzvEe4Q+8T2BhbsuT6p6MaBMkH9+3Qf0LU0R3/h8KriYwzODJrqDX8CqbNbbxJE71Xgj1JV6WvtyW0=
+    properties :
+     x : 267
+     y : 355
+     width : 36
+     height : 36
+    type : 8
+    code_elements :
+     type_code : 8
+     p_codes :
+      -
+        code : |1-
+         
+         moimeme..couleurfond = gncouleurencours
+        type : 14
+      -
+        code : |1+
+         
+         ouvrefenetremobile(FEN_SelecteurCouleur)
+        type : 18
+  -
+    name : IMG_Crayon
+    identifier : 0x2cab14c0079c4d4a
+    internal_properties : CAAAAAgAAABhj7Q2zum8XHvyIUsULtHO0k4wUQTYFU204f592BKePjHI4dtEmTpzZ925bFOTkY3gVZvSMbv8PHC3tctBJJkYMCftQtv5H/4upWoQ5sVbMPwg/WFFKYLU/aeyP/F8C+ypUJii/GZYhcoQWrzzU7W4YkhqN7vajqBM32uQopYV7t8UjMHUY1xPQjeYAEFMCy4Fx9ygwDn22gEGj4VHT73hc3lXBGJcfY53X2SvmPbpRhzE2ymjt90JR8p4AagpNqNJLYOuwUxnRCWbxW+hYeHPzGBt0VCCYPjVXE4CS+3iOBZb7Crx6pLIYIiLj8yFYo3Oq+2egI6XbzFQdV3X+mGpjH701VucCxjhr2o7uTIjI9W/LffUKbrDqM1l3ihLlaR3NJQIXDDz9ewYCdryxy+B244gpv3tkR+95+IOvxFEs/+X87oKPTKjIqrtj6fZlNOcARsitKdI7HWtDaUGwcRL6T3wThBbWAovqNPHdLO2SVgIs60XfIr7HUHfacEkd6uapfJrvydBaKa6SDpHsqGoYR0ecGjXz/2HI4ShWCPYJd99jfZu84zcTrboT4GYSVfkZrGW4Bcn5051sOrsAeF0j6wTyYueDhYq1/N1TWzHU9niBarAFZ+EzbcQknfb1k9TTKRQM34ndMd47/OAGEoXltlOHOrRqPybAcj8ePJrC4kq2QSakKWEa3J1fg2sNK+CpQ7gZx4GTYmtknMU/6y6/P13QjrcqlMGL9XdiKvB1yzJFnoLaQOzBVvsmOLWcqhyFVNOH6Irkcl5DoBVrbVrpUbo+fJYQSb6IBAu4e9UvX+7rzqgTFv/lRh9yOdO3e11y066Q3hO0/xSfAZy
+    properties :
+     x : 337
+     y : 5
+     width : 40
+     height : 40
+    type : 8
+    code_elements :
+     type_code : 8
+     p_codes : []
+ actionbar :
+  name : ACTB_ActionBar
+  identifier : 0x2587d6fd06371bc9
+  internal_properties : CAAAAAgAAADCmiHN3zioe2TFMHmUBO5iiiYVbvWPISeUKdC2SOqPT71x4qwBbZV4bEbsppFapLgmdKVSIjtshZUzKRTR1vKrRXwJ2JuB7K13PIPTJDT/Y/sKwdTdwC21my9IVtiYMgxBLlELL4k3PLyAEj+ICJZkyjOcpPUWRFF9XY6+LkZsPSYl8pNgQrrQs1REmq74tY3DgAti6Y8XRR8wZINsOZE8ERLy3wnt0d1GGqVslXPN2yvlwRqZPppTnCxziRqftLi8hHIIG0r4lSpup5Okl+NVczGWSefGlXREP6/ENz+NNicTa8ZznQoWEd1kS94P/OKW7KY+i7dd4kiaXndAxbXq72HaDpfGG7DhubuVnfXWR35Jm++aiO4ABu0z3eNxoJeG
+  controls : []
+  code_elements :
+   type_code : 125
+   p_codes :
+    -
+      type : 229
+      enabled : false
+    -
+      type : 239
+      enabled : false
+    -
+      type : 240
+      enabled : false
+ menu :
+  name : _Menu
+  identifier : 0x2af05ae62691eeec
+  internal_properties : CAAAAAgAAAByVTsSr3/syDi1St8xf8fgHxdhV816G1q5zyODGkOm1npuSkYo5g/jXWoWFFK2H3oUBZtHLsT5rfRCnVFNNS0taWG501M84VhyiY2gqfWqbb5TaLNBc7/5X5PbRqVlZ5a3p7SznWjoHPbzt8FGrVw2pkxQ2AMTSCoEquPAoSRRZmCgf0llwPSIdkz+fkQsa3yCb/aARC1IuAmTNbEAkdknQHeBdhsRIWlMefD05RVbqvlMGzysSB4KUPZWTHHaQPB4ObHU/5KQ/VjN8jyQaoRgKuGxrJ5V23KTuMr/Zw==
+  options :
+   -
+     name : OPT_SansNom
+     identifier : 0x2cfd299e0201795e
+     internal_properties : CAAAAAgAAADWYM8Uh/dld6iv5kJoXwBi0kdxMMBd+uY6DQoHPIt/QfFKI8NWwgyk6pQKlxrf9wmqx7QWHRUBkP94EWqj/88O62pql8LvlYLubOmWdTRcTzys33deXomz/Z84U7ZXFE2iqXZdbXTZE6FbEHGCkHfYAK9K4zTTN4oHG/UFwb3LOlLGIdity1sHw1UNx+pzrFeOilZKzBKiMFerIcGchwsU8N9zoLiMf3gFeSRHAMrEO0C5E2zVa8nLPk01obuzhfcM0T5zPp+egae8lAhUDV3NYQyKHzD3xi6SIwD5Yk6S48D5xNot3ZQSuScd0OeFbHF2Hl+TQPCJvRKnTaYY5tEJVECmyYVfWDyuqJ05vQ==
+     code_elements :
+      type_code : 26
+      p_codes :
+       -
+         code : |1+
+          
+          // On réinitialise le champ de dessin
+          dFinDessin(IMG_Note)
+          IMG_Note = ""
+          dDébutDessin(IMG_Note)
+          
+         type : 32
+  code_elements :
+   type_code : 26
+   p_codes : []
+ popup_menus :
+  -
+    name : MENU_SansNom1
+    identifier : 0x2cfd296901dea83b
+    internal_properties : CAAAAAgAAAB+rrGl5wTxf+K/TtH105uFg520uGG4F/DnwpZilEqSZ2YyJpFRxM4u7YoQfgGteMNoeSh/xgSh2NGyWlHVEDgG7PHPzGI4udL6vEdIn1NBU0Qff8TNZ4Ig37jX/qUsS/CeKyGeaH+Iyx7lKZMYoH9m9FOUmKbNkRZStiXyoVhXRW4K7lm+DSO8Mfht32wX7rsLgQ8RYnG54tDhHy2dCpWfPZMGfxG2p0d5JRvwouS/SNL7dyXWcWhMrkYOJtjHA3G2uAXpYM5jtPXAubDaUK46Agfx8/SVepTR9QWG8ejb8nARKIB4XVxRpK6tkFK4V/5Mb47fEM/XS/ZcCfLm1eeXvuracf6TJdu3CP29FDRBvBdYZYqYwkU=
+    options :
+     -
+       name : OPT_SansNom1
+       identifier : 0x2cfd296901dfa83b
+       internal_properties : CAAAAAgAAACrdNzD5zw885hhg0/acXgCs+Wk16pc289f8T5tLSc7qwd4fCizU94cYhOTle5D/eOIgprBbdyLICiEH76Cvjq/hX7poi7wdQ/fd97W/dDFBfAQnFjf1QPrZ8u/fTOkeiSvh9p2n9wApvHvcX+9B7jBYR21TqB1GCdwLIxfWk1C0KAVdpH/R4p/AKhXpEZ8Hwy+iacpexTqrk+EUqonYzHJXjKlgUim7sL83mVGbUlf6SAkCuoBYrdqWL2h/p0SIxv7fD2yBQ2y1wQh3RLtmpcIkDAmn6X8yU5uNxZsVX+Cv3mGXUyaoNnA5AMXEJKNQTbx1R+gnfuWBNQtYS591V+fuc8KotF6NLQnsXMWcNMpYwaRPR14bcuqvdHP19gwT7znu2tlglOYSWM=
+       code_elements :
+        type_code : 26
+        p_codes : []
+    controls : []
+    code_elements :
+     type_code : 26
+     p_codes : []
+ languages :
+  - fr-FR
+ message_bar :
+  internal_properties : CAAAAAgAAAC77C1fim5UPKYVy8uitqbJL1GYpzOb6pfklq7wGOhpFxlOA4GWENsfGekeBQSTCSDGwgql4sybj0fiUEVAIR4gWbN8rDsiHjLS9h5cLRJ+geeI2OlbyEksAXL6
+ code_elements :
+  internal_properties : CAAAAAgAAACvhiIr8gSQ5loUp83uTso9CuLc4dExenO6nYq0wt6wNhhy8DIKk+8xrI7GMink5ce8SLehbaZBjJVyvy60Arg=
+  type_code : 1
+  p_codes :
+   -
+     code : |1+
+      
+      PROCEDURE FEN_Edition(gnID est un entier = 0)
+      
+      gnCouleurEnCours est un entier = iNoir
+      gbCrayonEnfoncé  est un booléen
+      gnTailleCrayon	 est un entier = 2
+      gnX				 est un entier
+      gnY				 est un entier
+      gbEnregistré	 est un booléen = Vrai
+      gbEnModeCrayon	 est un booleen = Vrai
+      
+   -
+     code : |1-
+      
+      // Récupération de la note
+      SI gnID <> 0  ALORS
+      	HLitRecherchePremier(Note,IDNote,gnID)
+      	SI HTrouve(Note) ALORS
+      		IMG_Note = RécupèreCheminNote()
+      		gbEnregistré = Vrai	
+      	FIN
+      FIN
+      
+      
+      // On initialise le dessin
+      dDébutDessin(IMG_Note)
+     type : 34
+   -
+     type : 180
+     enabled : false
+   -
+     type : 230
+     enabled : false
+   -
+     code : |1-
+      
+     type : 2
+   -
+     code : |1+
+      
+      
+     type : 11
+   -
+     code : |1+
+      
+      
+     type : 12
+   -
+     code : |1+
+      
+      
+     type : 17
+   -
+     code : |1+
+      
+      
+     type : 13
+  procedures :
+   -
+     name : Enregistrer
+     procedure_id : 2065731823150167446
+     type_code : 14
+     code : |1-
+      // Résumé : Enregistre la note
+      // Syntaxe :
+      // Enregistrer ()
+      //
+      //
+      PROCEDURE Enregistrer()
+      
+      nOK est un entier = -1
+      
+      SI gnID = 0 et PAS gbEnregistré ALORS
+      	// Ouvre la fenêtre d'enregistrement
+      	sNom est une chaine
+      	bMod est un booléen
+      	sNomImage est une chaine
+      	nClic est un entier = 1
+      	
+      	TANTQUE sNom = "" ET nClic = 1
+      		nClic = Saisie(<§$0001§>,sNom)
+      	FIN
+      	
+      	SI sNom <> "" et nClic = 1 ALORS
+      		HLitRecherchePremier(Note,Nom,sNom)
+      		SI HTrouve ALORS
+      			SI OuiNon(<§$0002§>, <§$0003§>) = Non ALORS
+      				Saisie(<§$0004§>,sNom)
+      			SINON
+      				bMod = Vrai
+      			FIN
+      		FIN
+      		
+      		Note.Création = DateDuJour + Maintenant
+      		Note.Modification = DateDuJour + Maintenant
+      		Note.Nom = sNom
+      		
+      		SI bMod ALORS
+      			HModifie(Note)
+      		SINON
+      			HAjoute(Note)
+      		FIN
+      		
+      		// On récupère le chemin de l'image à sauver
+      		sNomImage = DonneFuturChemin(Note.IDNote)
+      		
+      		// On supprime les anciennes notes
+      		SupprimeNote(Note.IDNote)
+      		
+      		// On sauve la note sur l'appareil
+      		dSauveImagepng(IMG_Note,sNomImage,100)
+      		
+      		gnID = Note.IDNote
+      		nOK = Note.IDNote
+      	SINON
+      		nOK = -1
+      	FIN
+      SINON
+      	HLitRecherchePremier(Note, IDNote, gnID)
+      	SI HTrouve ALORS
+      		
+      		// On récupère le chemin de l'image à sauver
+      		sNomImage = DonneFuturChemin(gnID)
+      		
+      		// On supprime les anciennes notes
+      		SupprimeNote(gnID)
+      		
+      		// On sauve la note sur le téléphone
+      		dSauveImagePNG(IMG_Note,sNomImage,100)
+      		
+      		nOK = Note.IDNote
+      	SINON
+      		nOK = -1
+      	FIN
+      FIN
+      
+      // L'enregistrement est OK
+      SI nOK <> -1 ALORS
+      	// Valide l'enregistrement
+      	gbEnregistré = Vrai
+      	// Grise le bouton
+      	IMG_Enregistrer..Etat = Grisé
+      	// On informe l'utilisateur
+      	ToastAffiche(<§$0005§>)
+      SINON
+      	gbEnregistré = Faux
+      FIN
+     type : 458752
+   -
+     name : ChangeCouleur
+     procedure_id : 2065742801086117412
+     type_code : 14
+     code : |1-
+      // Résumé : Change la couleur de dessin
+      // Syntaxe :
+      //ChangeCouleur (<nCouleur> est entier)
+      //
+      // Paramètres :
+      //	nCouleur (entier) : la nouvelle couleur
+      PROCEDURE ChangeCouleur(nCouleur est un entier)
+      
+      
+      SI nCouleur <> 0 ALORS
+      	gnCouleurEnCours = nCouleur
+      	COULEUR_EN_COURS..CouleurFond = nCouleur
+      FIN
+     type : 458752
+   -
+     name : RécupèreCheminNote
+     internal_properties : CAAAAAgAAAAsV8iuIjArEYpqZ7WKdqtCV7SUbEqTJT7w+lSV9Vyqi6azceSBErB94Li6FT7IOZ7yAu6jzlgNg9o2lTbEhrz5qVJYpNiwv4YQSNJ/BzwDcJEeDpCgtXqJF7z3P5pPt5a2bQ6uR2hUj5MmlNMyzj+iOwmdFM67nsWOS+pkg499sOwWQKQNjJPu6odpj6LKE4a49gH8F7w=
+     procedure_id : 2074348227625926401
+     type_code : 14
+     code : |1-
+      // Résumé : Renvoyer le chemin de la dernière photo prise
+      // Syntaxe :
+      //[ <Résultat> = ] RécupèreCheminNote ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne : Le chemin de la dernière photo prise
+      //
+      PROCEDURE RécupèreCheminNote()
+      
+      sImage est une chaine
+      sListeFichier est une chaine
+      
+      sListeFichier = fListeFichier(fRepDonnées() + ["\"] +  "*.png", frNonRécursif)
+      
+      // Pour chaque fichier trouvé
+      POUR TOUTE CHAINE UnFichier DE sListeFichier SEPAREE PAR RC
+      	// Si c'est une image pour l'ID demandé
+      	Si ExtraitChaîne(fExtraitChemin(UnFIchier,fFichier),rangPremier,"-",DepuisDébut) = gnID ALORS
+      		// Si c'est l'image est plus récente on la garde
+      		SI sImage = "" _OU_ UnFichier > sImage ALORS
+      			sImage = UnFichier
+      		FIN
+      	FIN
+      FIN
+      
+      RENVOYER sImage
+     type : 458752
+   -
+     name : DonneFuturChemin
+     internal_properties : CAAAAAgAAACOKepMLUrXuQjoR3mmJCvO0aYWCv4xNRbSNBxBucIigwzBa/I5fIChEkrGJdYSZdpwQDxlrkLZ8+wYyV6E0MQZAzxaisR2g7pqEs7yvHVezU6jiQVN1qOwTCEMDgPMVnczgpEjxBnlnpDrOQILCwbrlOJo2eeoa5BLiJerwGAINQUv17UGkZDtm/Ay4qfL/tuJGCPaNV4=
+     procedure_id : 2074349533296222739
+     type_code : 14
+     code : |1+
+      // Résumé : Renvoie le chemin de la future Note
+      // Syntaxe :
+      //[ <Résultat> = ] DonneFuturChemin (<nID> est entier)
+      //
+      // Paramètres :
+      //	nID (entier) :  L'ID de la note
+      // Valeur de retour :
+      // 	chaîne : // 	Aucune
+      //
+      PROCEDURE DonneFuturChemin(nID est un entier)
+      
+      RENVOYER fRepDonnées() + ["/"] + nID + "-" + DateSys() + HeureSys() + ".png"
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAADeQcze1Ixqfwn6yOfjwsQ7IKxuiqMzbTygTLeVXFH8DB0WqXgSKvkzRoO0/Z27dfrh8D+BLYmMenjdtZezotw6hJf2mE4Gv6OctA==
+  original_name : FEN_Fenêtre1
+resources :
+ string_res :
+  identifier : 0x1ca9e78c000f2794
+  internal_properties : CAAAAAgAAACyXVFaObH4lOGSEHJoZf1MD49w+XTw2LScZCP/urkWFwy+HYJdyQ3umA==
+  strings :
+   -
+     text :
+      fr-FR : Voulez-vous enregistrer vos modifications?
+     index : 0
+   -
+     text :
+      fr-FR : "Nom de la note : "
+     index : 1
+   -
+     text :
+      fr-FR : Une note de même nom existe déjà.
+     index : 2
+   -
+     text :
+      fr-FR : Souhaitez-vous l'écraser ?
+     index : 3
+   -
+     text :
+      fr-FR : Nom de la note
+     index : 4
+   -
+     text :
+      fr-FR : Note enregistrée
+     index : 5
+custom_note :
+ internal_properties : CAAAAAgAAAC68/W0/adbG0nFCRhrE42B5HRnbDzVHaz86sSQyxlBk7I=
+rad :
+ internal_properties : CAAAAAgAAABoAN7PLpwJW3EiA7WVZdCA5EwrCA1rvutcDHooMWKe

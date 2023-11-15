@@ -1,0 +1,57 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : ProcéduresGlobales
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x1cc993a300221efc
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  internal_properties : CAAAAAgAAAD+S4kw2zfS0Nwib5qkV17TM+sQd/PBuJPG+c7rVT+UbNxq+eh541jo4HOuMx4T6h3I8b8Z99y/aAkedMiSMibrlVikvgJPl1Y=
+  type_code : 31
+  p_codes : []
+  procedures :
+   -
+     name : SupprimeNote
+     internal_properties : CAAAAAgAAADMdygOAgAT4frqd3WKJitSp6SkbBojhd7w6hSFxTy6qwaTkVThUmDN8LgKWO5GlZ5c7Ix15v4Vc/gkzV60pDz9V+iakgxKv1q23hpwskNsH1xBr6fjhElWIk9KxHl6hOmJWH/1Sl9L9CbRrIsK5ieKs/H1nCYT9o12Y+Ice6dF+GSe2AxlBAt2En/hZ3riW3aY1mEc95w=
+     procedure_id : 2074351440262014711
+     type_code : 15
+     code : |1+
+      // Résumé : Supprime la note sur la carte sd
+      // Syntaxe :
+      //SupprimeNote (<nID> est entier)
+      //
+      // Paramètres :
+      //	nID (entier) : L'ID de la note à supprimer
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE SupprimeNote(nID est un entier)
+      
+      sListeFichier est une chaine
+      
+      sListeFichier = fListeFichier(fRepDonnées() + ["\"] +  "*.png", frNonRécursif)
+      
+      // Pour chaque fichier trouvé
+      POUR TOUTE CHAINE UnFichier DE sListeFichier SEPAREE PAR RC
+      	// Si c'est une image pour l'ID demandé
+      	Si ExtraitChaîne(fExtraitChemin(UnFIchier,fFichier),rangPremier,"-",DepuisDébut) = nID ALORS
+      		fSupprime(UnFichier)
+      	FIN
+      FIN
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : COL_ProcéduresGlobales1
+resources :
+ string_res :
+  identifier : 0x1fa19cea000383e5
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ
